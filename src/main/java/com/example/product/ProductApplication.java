@@ -11,9 +11,13 @@ import org.springframework.integration.kafka.dsl.Kafka;
 //@EnableBinding(Processor.class)
 @EnableBinding(KafkaProcessor.class)
 public class ProductApplication {
-	public static ApplicationContext applicationContext;
+	private static ApplicationContext applicationContext;
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(ProductApplication.class, args);
+	}
+
+	public static KafkaProcessor getBeanForProcessor(){
+		return applicationContext.getBean(KafkaProcessor.class);
 	}
 
 }

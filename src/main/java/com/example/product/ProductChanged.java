@@ -1,10 +1,16 @@
 package com.example.product;
 
-public class ProductChanged {
-    String eventType;
+import org.springframework.messaging.MessageChannel;
+
+public class ProductChanged extends AbstractEvent {
     Long productId;
     String productName;
     int productStock;
+
+    @Override
+    public String getEventType() {
+        return eventType;
+    }
 
     public Long getProductId() {
         return productId;
@@ -30,9 +36,6 @@ public class ProductChanged {
         this.productStock = productStock;
     }
 
-    public String getEventType() {
-        return eventType;
-    }
 
     public void setEventType(String eventType) {
         this.eventType = eventType;
