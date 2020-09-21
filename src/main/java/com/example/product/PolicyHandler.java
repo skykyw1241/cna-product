@@ -32,7 +32,7 @@ public class PolicyHandler {
             //  상품ID 값의 재고 변경로직
 
             Optional<Product> productById = productRepository.findById(orderCreated.getProductId());
-            if(productById != null && !productById.isEmpty()){
+            if(productById != null){
                 Product p = productById.get();
                 if(p.getStock()-orderCreated.getQty() >= 0){
                     p.setStock(p.getStock()-orderCreated.getQty());
